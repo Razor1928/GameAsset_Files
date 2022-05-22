@@ -1,0 +1,43 @@
+// paste this in the manifest 
+<meta-data
+  android:name="com.google.android.gms.ads.APPLICATION_ID"
+  android:value="ca-app-pub-6780814663279230~9243486893"/>
+
+    // google library to display adds
+    implementation 'com.google.firebase:firebase-ads:15.0.1'
+
+Interstitial Ads test id
+ca-app-pub-3940256099942544/1033173712
+//device test id...but
+ <string name="device_test_id">put the id of your device here</string>
+
+
+
+// banner ads
+    // paste this in the string.xml
+  <string name="banner_ad_id">ca-app-pub-3940256099942544/6300978111</string>
+
+// go to the activity_main.xml and paste this 
+        <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_id"/>
+
+xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+
+
+// go to the main activty and paste this 
+        public void bannerAds(){
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(getString(R.string.oppo_test_id))
+                .build();
+        mAdView.loadAd(adRequest);
+    }
+
+
